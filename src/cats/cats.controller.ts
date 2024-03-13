@@ -1,12 +1,17 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CatsInfoService } from 'src/cats-info/cats-info.service';
+import { Controller, Get, Param } from '@nestjs/common';
+import { CatsService } from './cats.service';
 
 @Controller('cats')
 export class CatsController {
-    constructor(private catsInfoService: CatsInfoService) {}
-  
-    @Get()
-    getAllCatsInfo() {
-      return this.catsInfoService.findAll();
-    }
+  constructor(private readonly catsService: CatsService) {}
+
+  @Get()
+  findAll() {
+    return this.catsService.findAll();
   }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.catsService.findOne(+id);
+  }
+}
