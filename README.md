@@ -53,3 +53,13 @@ Contrôleur des Posts :
         URL : /posts
         Corps : Objet JSON contenant l'auteur, le titre et le contenu du post, en omettant les champs id et timestamp qui sont gérés automatiquement par le service.
         Description : Cet endpoint permet de créer un nouveau post. Le corps de la requête doit inclure les détails du post (auteur, titre et contenu). L'id est auto-incrémenté, et le timestamp est défini à la date et l'heure actuelles.
+        
+        Exemple : POST /posts
+        Body :
+        ```json
+        {
+            "author": "Nom de l'auteur",
+            "title": "Titre du post",
+            "content": "Contenu du post"
+        }
+        ```
